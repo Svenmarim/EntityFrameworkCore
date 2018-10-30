@@ -10,13 +10,14 @@ namespace EntityFrameworkCore.Data.Entities
     public class MachineEntity
     {
         [Key]
-        [MaxLength(256)]
         public string Id { get; set; }
 
-        [Column(TypeName = "decimal(10, 1)")]
+        public AccountEntity Account { get; set; }
+
+        [Column(TypeName = "decimal (10,1)")]
         public decimal? WorkingHours { get; set; }
 
-        [Column(TypeName = "decimal(10, 2)")]
+        [Column(TypeName = "decimal (10,2)")]
         public decimal? TravelDistInKm { get; set; }
 
         public bool Active { get; set; }

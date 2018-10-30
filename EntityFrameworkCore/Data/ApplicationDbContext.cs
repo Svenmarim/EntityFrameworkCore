@@ -1,5 +1,4 @@
 ﻿using EntityFrameworkCore.Data.Entities;
-using EntityFrameworkCore.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,8 @@ namespace EntityFrameworkCore.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<MachineEntity> Machine { get; set; }
+        public DbSet<AccountEntity> Accounts { get; set; }
+        public DbSet<MachineEntity> Machines { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -19,7 +19,10 @@ namespace EntityFrameworkCore.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MachineEntity>().ToTable("machine");
+            // Here you can add foreign key and all other stuff to columns
+            modelBuilder.Entity<AccountEntity>().ToTable("Account");
+
+            modelBuilder.Entity<MachineEntity>().ToTable("Machine");
 
             base.OnModelCreating(modelBuilder);
         }
