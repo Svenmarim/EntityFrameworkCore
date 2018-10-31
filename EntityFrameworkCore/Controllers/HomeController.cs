@@ -4,24 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using EntityFrameworkCore.Services;
+using EntityFrameworkCore.Services.Interfaces;
 
 namespace EntityFrameworkCore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IService _service;
+        private readonly IAccountService _accountService;
+        private readonly IMachineService _machineService;
 
-        public HomeController(IService service)
+        public HomeController(IAccountService accountService, IMachineService machineService)
         {
-            _service = service;
+            _accountService = accountService;
+            _machineService = machineService;
         }
 
         public IActionResult Index()
         {
-            _service.DoDbStuff();
-
-            return View();
+             return View();
         }
     }
 }

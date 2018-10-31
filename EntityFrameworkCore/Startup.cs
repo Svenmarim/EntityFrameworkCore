@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Data;
 using EntityFrameworkCore.Services;
+using EntityFrameworkCore.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -38,7 +39,8 @@ namespace EntityFrameworkCore
             );
 
             //Injecting Services
-            services.AddTransient<IService, Service>();
+            services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<IMachineService, MachineService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
