@@ -20,9 +20,9 @@ namespace EntityFrameworkCore.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Here you can add foreign key and all other stuff to columns
-            modelBuilder.Entity<AccountEntity>().ToTable("Account");
+            modelBuilder.Entity<AccountEntity>().ToTable("account");
 
-            modelBuilder.Entity<MachineEntity>().ToTable("Machine");
+            modelBuilder.Entity<MachineEntity>().ToTable("machine");
 
             base.OnModelCreating(modelBuilder);
         }

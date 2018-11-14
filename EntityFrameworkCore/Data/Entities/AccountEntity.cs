@@ -24,6 +24,9 @@ namespace EntityFrameworkCore.Data.Entities
         public string PhoneNumber { get; set; }
 
         [Required]
+        public DateTime DateOfBirth { get; set; }
+
+        [Required]
         [MaxLength(255)]
         public string HashedPassword { get; set; }
 
